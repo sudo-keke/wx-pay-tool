@@ -1,18 +1,40 @@
-# Getting Started
+# 微信支付相关开发
 
-### Reference Documentation
+### 主要对微信提供的接口进行调用，以便于看不太懂文档的朋友理解相应的业务开发
+
+
+#### PS : 微信开发文档会不定时更新，不能保证此代码永久适用，每次提交代码我会尽量在下面更新提交时间
+#### 更新日期 ： 2019-08-01
+
+
 For further reference, please consider the following sections:
+```
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Web Starter](https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-developing-web-applications)
-* [MyBatis Framework](http://www.mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/)
+支付：
+    小程序微信支付（统一下单）
+    申请退款
+    查询退款
+
+企业：
+    企业付款到零钱
+    
+    
+包结构：
+    -- bean：    封装的JavaBean
+    -- common：  公用类
+    -- util：    工具类
+    -- login：   登录代码示例
+
+```
 
 ### Guides
 The following guides illustrate how to use some features concretely:
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
-* [MyBatis Quick Start](https://github.com/mybatis/spring-boot-starter/wiki/Quick-Start)
-* [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
+###### PS：【公众平台】 与 【开放平台】 并不是同套系统，开发前先分清楚使用哪一个
+
+* [微信支付](https://pay.weixin.qq.com/wiki/doc/api/index.html)
+
+* [微信公众平台](https://mp.weixin.qq.com/wiki)
+
+* [微信开放平台](https://open.weixin.qq.com/)
 

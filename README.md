@@ -19,7 +19,7 @@ For further reference, please consider the following sections:
     企业付款到零钱
     
 包结构：
-    -- wxpay.sdk：   微信支付官方demo，可以在下面的链接里面下载，也可以用我修改过的
+    -- wxpay.sdk：   微信支付官方demo，可以在下面的链接里面下载，也可以用我修改过的 
             
 ```
 

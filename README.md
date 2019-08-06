@@ -14,18 +14,13 @@ For further reference, please consider the following sections:
     小程序微信支付（统一下单）
     申请退款
     查询退款
-    
 
 企业：
     企业付款到零钱
     
-    
 包结构：
-    -- bean：    封装的JavaBean
-    -- common：  公用类
-    -- util：    工具类
-    -- login：   登录代码示例
-
+    -- wxpay.sdk：    微信支付官方demo，可以在下面的链接里面下载，也可以用我修改过的
+            
 ```
 
 ### Guides
@@ -38,4 +33,6 @@ The following guides illustrate how to use some features concretely:
 * [微信公众平台](https://mp.weixin.qq.com/wiki)
 
 * [微信开放平台](https://open.weixin.qq.com/)
+
+* [微信支付 SDK 下载](https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=11_1)
 

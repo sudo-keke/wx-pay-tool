@@ -13,6 +13,7 @@ public enum StatusCode {
      * 1 开头 业务执行错误
      */
     TRANSFERS_ERROR("10000", "提现失败，请稍后重试"),
+    UNIFIEDORDER_ERROR("10001", "支付失败，请稍后重试"),
 
 
 

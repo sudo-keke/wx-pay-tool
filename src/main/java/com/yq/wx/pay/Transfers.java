@@ -14,6 +14,8 @@ import com.yq.wx.wxpay.sdk.WXPayUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @ClassName :  Transfers
  * @Author :  Yanqinag
@@ -27,30 +29,32 @@ public class Transfers {
     /**
      * @Author : Yanqiang
      * @Date : 2019-08-06
-     * @Param : appId       公众账号appid
-     * @Param : mchId       商户号
-     * @Param : amount      转账金额（元）
-     * @Param : openId      用户openid
-     * @Param : realName    用户真实姓名
+     * @Param : appId           公众账号appid
+     * @Param : mchId           商户号
+     * @Param : amount          转账金额（元）
+     * @Param : openId          用户openid
+     * @Param : partnerTradeNo  商户唯一单号
+     * @Param : realName        用户真实姓名
      * @Return : com.yq.wx.common.BaseResult
      * @Description :
-     * 注意：企业付款到用户零钱，sign 加密只支持 MD5 !!!
+     *      注意：
+     *           1.企业付款到用户零钱（提现），sign 加密只支持 MD5 !!!
+     *           2.报 ip 问题，注意查看微信支付网站上的配置，配置的 IP 必须是你这个代码所在服务器的 IP
+     *           3.spbill_create_ip 这个 IP 是随便填的，微信支付官方论坛上回答的五花八门，真是 shit ！
      */
-    public BaseResult transfers(String appId, String mchId, String amount,String openId,String realName) {
+    public BaseResult transfers(HttpServletRequest request, String appId, String mchId, String amount, String openId, String partnerTradeNo, String realName) {
         BaseResult baseResult = new BaseResult();
         //将传过来的金额 amount 转换成以分为单位
         amount = new BigDecimal(amount).multiply(new BigDecimal("100")).stripTrailingZeros().toPlainString();
         //构造请求参数 不需要此时设置sign签名，wxPay.transfers()接口 通过配置类自动配置
         ConcurrentHashMap<String, String> requestMap = new ConcurrentHashMap<>(20);
-        //商户唯一单号
-        String partnerTradeNo = WXPayUtil.generateIntegerStr();
-        String nonceStr = WXPayUtil.generateNonceStr();
+        //
         //公众账号appid
         requestMap.put("mch_appid", appId);
         //商户号
         requestMap.put("mchid", mchId);
         //随机字符串
-        requestMap.put("nonce_str", nonceStr);
+        requestMap.put("nonce_str", WXPayUtil.generateNonceStr());
         //商户订单号
         requestMap.put("partner_trade_no", partnerTradeNo);
         //用户openid
@@ -62,9 +66,9 @@ public class Transfers {
         //转账金额
         requestMap.put("amount", amount);
         //企业付款描述信息
-        requestMap.put("desc", "集乐多提现到用户零钱");
+        requestMap.put("desc", "用户提现到零钱");
         //服务器Ip地址,ip随便
-        requestMap.put("spbill_create_ip", "39.106.54.252");
+        requestMap.put("spbill_create_ip", WXPayUtil.getIp2(request));
         try {
             //MyWXPayConfig 配置类；-- 传递启动环境
             //notifyUrl ：微信回调通知

@@ -11,6 +11,8 @@ import java.io.InputStream;
  * @Author : Yanqiang
  * @Date : 2019-08-06
  * @Description : 微信支付/退款配置类 继承abstract WXPayConfig ,自己实现微信配置
+ *
+ * PS：如果是多个应用使用，应该有效的区分 appId ,MchID, key, 以及证书！！！
  */
 public class MyWXPayConfig extends WXPayConfig {
 
@@ -35,6 +37,7 @@ public class MyWXPayConfig extends WXPayConfig {
      * @Date : 2019-08-06
      * @Params : [profiles]
      * @Description : 主要是为了根据当前运行环境，区分使用的证书
+     *  微信推荐放在服务器上，这里因为之前使用的是 jar 包方式，就放在 resource 根目录下了
      */
     public MyWXPayConfig(String profiles) throws Exception {
         this.profiles = profiles;

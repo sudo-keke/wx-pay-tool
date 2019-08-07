@@ -26,10 +26,9 @@ public class Unifiedorder {
 
     private static Logger log = LoggerFactory.getLogger(Unifiedorder.class);
 
-
     /**
      * @Author : Yanqiang
-     * @Date : 2019/7/11
+     * @Date : 2019/08/07
      * @Param : [afterSale, refundFee]
      * @return : java.util.Map<java.lang.String,java.lang.String>
      * @Description : 微信小程序支付 URL地址：https://api.mch.weixin.qq.com/pay/unifiedorder
